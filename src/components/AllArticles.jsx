@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../../app";
+import SortBy from "./SortBy";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortBy, setSortBy] = useState("created_at");
 
   useEffect(() => {
     fetchArticles().then((articles) => {
       setArticles(articles);
       setLoading(false);
     });
-  }, []);
+  }, [sortBy]);
 
   return (
     <div>
       <div className="all-articles-header">
         <h2>All Articles</h2>
       </div>
+      <SortBy setSortBy={setSortBy} />
       <div className="all-articles-info">
         <ul className="image-container">
           {articles.map((article) => (
