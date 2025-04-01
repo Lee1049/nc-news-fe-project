@@ -48,6 +48,14 @@ body {
   height: auto;
   border-radius: 10px;
 }
+.comments-card {
+  background-color: #fff;
+  border: 2px solid #004085;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+}
 @media (max-width: 600px) {
   .all-articles-info {
     grid-template-columns: 1fr;
