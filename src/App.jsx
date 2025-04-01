@@ -1,8 +1,9 @@
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import AllArticles from "./components/AllArticles";
-import { BrowserRouter as Router, Route, Routes } from "react-router";
 import HomeDisplay from "./components/HomePage";
+import AllArticles from "./components/AllArticles";
+import SingleArticle from "./components/SingleArticle";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeDisplay />} />
             <Route path="/articles" element={<AllArticles />} />
+            <Route path="/articles/:article_id" element={<SingleArticle />} />
           </Routes>
         </main>
       </div>

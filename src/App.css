@@ -33,6 +33,21 @@ body {
   list-style-type: none;
 }
 
+.single-article {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #004085;
+  background-color: #cce5ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
 @media (max-width: 600px) {
   .all-articles-info {
     grid-template-columns: 1fr;
