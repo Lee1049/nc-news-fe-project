@@ -56,6 +56,15 @@ body {
   border-radius: 10px;
   list-style-type: none;
 }
+.voting-button {
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 1px;
+}
 @media (max-width: 600px) {
   .all-articles-info {
     grid-template-columns: 1fr;
