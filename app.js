@@ -29,10 +29,20 @@ export const fetchComments = (article_id) => {
   return api
     .get(`/articles/${article_id}/comments`)
     .then(({ data }) => {
-      console.log(data, "comments");
       return data.comments;
     })
     .catch((error) => {
       console.error("Error fetching comments:", error);
+    });
+};
+
+export const updateArticleVotes = (article_id, inc_votes) => {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((error) => {
+      console.error("Error updating article votes:", error);
     });
 };
