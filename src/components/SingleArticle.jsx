@@ -57,10 +57,10 @@ function SingleArticle() {
         <p>{article.body}</p>
         <p> Article Votes: {article.votes + voteChange}</p>
         <button onClick={() => handleVoteChange(1)} className="voting-button">
-          ⬆ Upvote
+          👍
         </button>
         <button onClick={() => handleVoteChange(-1)} className="voting-button">
-          ⬇Downvote
+          👎
         </button>
         <p>Posted: {new Date(article.created_at).toLocaleDateString()}</p>
         <ul>
