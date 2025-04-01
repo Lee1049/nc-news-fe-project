@@ -24,3 +24,15 @@ export const fetchSingleArticle = (article_id) => {
       console.error("Error fetching article:", error);
     });
 };
+
+export const fetchComments = (article_id) => {
+  return api
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      console.log(data, "comments");
+      return data.comments;
+    })
+    .catch((error) => {
+      console.error("Error fetching comments:", error);
+    });
+};

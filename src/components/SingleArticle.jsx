@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchSingleArticle } from "../../app";
+import { fetchComments, fetchSingleArticle } from "../../app";
 
 function SingleArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetchSingleArticle(article_id)
       .then((articleData) => {
         setArticle(articleData);
+        setComments(articleData.comments);
+        return fetchComments(article_id);
+      })
+      .then((commentsData) => {
+        console.log(commentsData, "comments");
+        setComments(commentsData);
         setLoading(false);
       })
       .catch((error) => {
@@ -27,18 +34,33 @@ function SingleArticle() {
       <h1>{article.title}</h1>
       <div className="single-article">
         <h2>
-          Topic:
+          Topic:{" "}
           {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
         </h2>
         <h3>
-          Author:
+          Author:{" "}
           {article.author.charAt(0).toUpperCase() + article.author.slice(1)}
         </h3>
         <img src={article.article_img_url} alt={article.title}></img>
         <p>{article.body}</p>
-        <p>Votes: {article.votes}</p>
+        <p> Article Votes: {article.votes}</p>
         <p>Posted: {new Date(article.created_at).toLocaleDateString()}</p>
-        <p>Comments: {article.comment_count}</p>
+        <ul>
+          {comments.length > 0 ? (
+            comments.map((comments) => (
+              <li key={comments.comment_id} className="comments-card">
+                <p>Author: {comments.author}</p>
+                <p>{comments.body}</p>
+                <p> Comment Votes: {comments.votes}</p>
+                <p>
+                  Posted: {new Date(comments.created_at).toLocaleDateString()}
+                </p>
+              </li>
+            ))
+          ) : (
+            <p>No comments yet.</p>
+          )}
+        </ul>
       </div>
     </div>
   );
