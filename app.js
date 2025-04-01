@@ -13,3 +13,14 @@ export const fetchArticles = () => {
       console.error("Error fetching articles:", error);
     });
 };
+
+export const fetchSingleArticle = (article_id) => {
+  return api
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((error) => {
+      console.error("Error fetching article:", error);
+    });
+};
