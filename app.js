@@ -46,3 +46,14 @@ export const updateArticleVotes = (article_id, inc_votes) => {
       console.error("Error updating article votes:", error);
     });
 };
+
+export const postComment = (article_id, author, body) => {
+  return api
+    .post(`/articles/${article_id}/comments`, { author, body })
+    .then(({ data }) => {
+      return data.comment;
+    })
+    .catch((error) => {
+      console.error("Error posting comment:", error);
+    });
+};

@@ -5,6 +5,7 @@ import {
   fetchSingleArticle,
   updateArticleVotes,
 } from "../../app";
+import NewComment from "./NewComment";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -38,6 +39,10 @@ function SingleArticle() {
     });
   };
 
+  const handleNewComment = (newComment) => {
+    setComments((prevComments) => [newComment, ...prevComments]);
+  };
+
   if (loading) return <p>Loading article...</p>;
   if (!article) return <p>Article not found.</p>;
 
@@ -63,6 +68,11 @@ function SingleArticle() {
           👎
         </button>
         <p>Posted: {new Date(article.created_at).toLocaleDateString()}</p>
+        <NewComment
+          article_id={article_id}
+          addComment={handleNewComment}
+          author="cooljmessy"
+        />
         <ul>
           {comments.length > 0 ? (
             comments.map((comment) => (
