@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 
 function HomeDisplay() {
-  function handleClick() {
-    console.log("clicked");
-  }
+  function handleClick() {}
 
   return (
     <nav>

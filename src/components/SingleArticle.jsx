@@ -6,6 +6,7 @@ import {
   updateArticleVotes,
 } from "../../app";
 import NewComment from "./NewComment";
+import RemoveComment from "./RemoveComment";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -43,6 +44,15 @@ function SingleArticle() {
     setComments((prevComments) => [newComment, ...prevComments]);
   };
 
+  const handleDeleteComment = (comment_id) => {
+    setComments((prevComments) => {
+      const newComments = prevComments.filter(
+        (comment) => comment.comment_id !== comment_id
+      );
+      return newComments;
+    });
+  };
+
   if (loading) return <p>Loading article...</p>;
   if (!article) return <p>Article not found.</p>;
 
@@ -58,8 +68,12 @@ function SingleArticle() {
           Author:{" "}
           {article.author.charAt(0).toUpperCase() + article.author.slice(1)}
         </h3>
-        <img src={article.article_img_url} alt={article.title}></img>
-        <p>{article.body}</p>
+        <img
+          src={article.article_img_url}
+          alt={article.title}
+          className="image"
+        ></img>
+        <p className="single-article-body">{article.body}</p>
         <p> Article Votes: {article.votes + voteChange}</p>
         <button onClick={() => handleVoteChange(1)} className="voting-button">
           👍
@@ -80,9 +94,13 @@ function SingleArticle() {
                 <p>Author: {comment.author}</p>
                 <p>{comment.body}</p>
                 <p> Comment Votes: {comment.votes}</p>
-                <p>
+                <div>
                   Posted: {new Date(comment.created_at).toLocaleDateString()}
-                </p>
+                  <RemoveComment
+                    comment_id={comment.comment_id}
+                    setComments={handleDeleteComment}
+                  />
+                </div>
               </li>
             ))
           ) : (
@@ -93,5 +111,4 @@ function SingleArticle() {
     </div>
   );
 }
-
 export default SingleArticle;

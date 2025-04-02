@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   color: #222;
-  margin: 0;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -20,7 +20,7 @@ body {
 .all-articles-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 10px;
   padding: 10px;
 }
 
@@ -28,9 +28,19 @@ body {
   background-color: #fff;
   border: 2px solid #004085;
   padding: 15px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   list-style-type: none;
+}
+
+.single-article-body {
+  background-color: #fff;
+  border: 2px solid #004085;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  list-style-type: none;
+  width: 80%;
 }
 
 .single-article {
@@ -39,25 +49,25 @@ body {
   font-weight: bold;
   color: #004085;
   background-color: #cce5ff;
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
 .image {
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 10px;
 }
 
 .comments-card {
-  background-color: #fff;
+  background-color: white;
   border: 2px solid #004085;
   padding: 15px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   list-style-type: none;
-  width: 95%;
+  width: 60%;
 }
 .voting-button {
   background-color: #004085;
@@ -65,7 +75,12 @@ body {
   padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
-  margin: 1px;
+  margin: 1px auto;
+}
+
+.voting-button:hover,
+.voting-button:focus {
+  background-color: #0056b3;
 }
 
 .comment-textarea {
@@ -73,11 +88,12 @@ body {
   border: 2px solid #004085;
   color: black;
   font-size: 16px;
-  padding: 15px;
-  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   list-style-type: none;
-  width: 60%;
+  width: 50%;
 }
 
 .comment-submit-button {
@@ -95,7 +111,8 @@ body {
   cursor: pointer;
 }
 
-.comment-button:hover {
+.comment-submit-button:hover,
+.comment-submit-button:focus {
   background-color: #0056b3;
 }
 
@@ -103,6 +120,26 @@ body {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.delete-comment-button {
+  display: block;
+  width: 28%;
+  margin: 10px auto;
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.delete-comment-button:hover,
+.delete-comment-button:focus {
+  background-color: #b71c1c;
 }
 
 @media (max-width: 600px) {
