@@ -54,6 +54,7 @@ function AllArticles() {
                 <p>
                   Posted: {new Date(article.created_at).toLocaleDateString()}
                 </p>
+                <p>Comments: {article.comment_count}</p>
                 <Link to={`/articles/${article.article_id}`}>
                   <p>Click to View</p>
                 </Link>

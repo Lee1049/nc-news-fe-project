@@ -57,3 +57,18 @@ export const postComment = (article_id, author, body) => {
       console.error("Error posting comment:", error);
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return api
+    .delete(`/comments/${comment_id}`)
+    .then(() => {})
+    .catch((error) => {
+      console.error("Error deleting comment:", error.message);
+      if (error.response) {
+        console.error("Error response:", error.response);
+      }
+      if (error.config) {
+        console.error("Error config:", error.config);
+      }
+    });
+};
