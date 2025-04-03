@@ -6,12 +6,14 @@ import AllArticles from "./components/AllArticles";
 import SingleArticle from "./components/SingleArticle";
 import AllTopics from "./components/AllTopics";
 import SingleTopic from "./components/SingleTopic";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Header />
+        <NavBar />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<HomeDisplay />} />

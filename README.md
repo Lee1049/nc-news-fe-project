@@ -3,6 +3,7 @@
 ## Deployed Version
 
 You can view the deployed version of the app here: (https://news-fe-lee.netlify.app)
+Note: This will take 2-3 minutes to load the first time
 
 ## Project Description
 
