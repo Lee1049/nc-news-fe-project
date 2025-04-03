@@ -87,6 +87,7 @@ body {
   list-style-type: none;
   width: 60%;
 }
+
 .voting-button {
   background-color: #004085;
   border: none;
@@ -94,6 +95,8 @@ body {
   border-radius: 30px;
   cursor: pointer;
   margin: 1px auto;
+  font-size: 16px;
+  width: 100%;
 }
 
 .voting-button:hover,
@@ -116,9 +119,9 @@ body {
 
 .comment-submit-button {
   display: block;
-  width: 25%;
+  width: 50%;
   margin: 10px auto;
-  padding: 10px 16px;
+  padding: 12px 20px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -142,11 +145,11 @@ body {
 
 .delete-comment-button {
   display: block;
-  width: 28%;
+  width: 50%;
   margin: 10px auto;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   background-color: #d32f2f;
   color: white;
@@ -202,7 +205,24 @@ body {
   .all-articles-info {
     grid-template-columns: 1fr;
   }
+
+  .voting-button,
+  .comment-submit-button,
+  .delete-comment-button {
+    width: 80%;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
+  .comment-textarea {
+    width: 80%;
+  }
+
+  .image {
+    width: 80%;
+  }
 }
+
 .image-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

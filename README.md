@@ -1,12 +1,51 @@
-# React + Vite
+# My React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployed Version
 
-Currently, two official plugins are available:
+You can view the deployed version of the app here: (https://news-fe-lee.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description
 
-## Expanding the ESLint configuration
+This project is a React-based web application that allows users to browse articles, view articles by topics, and interact with comments. Users can vote on articles and comments, and add new comments to articles. The app also implements error handling for non-existent articles, topics, or comments.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Features:
+
+- View a list of articles.
+- View articles by specific topics.
+- Vote on articles.
+- Post and delete comments.
+- Handle errors, displaying messages for missing data.
+
+## How to Use
+
+To use the app, visit the deployed version linked above. You can browse through articles, view them by topic, and participate in discussions by commenting on articles.
+
+## Back-End Repository
+
+The back-end of this application is available in this repository: (https://news-app-backend-project.onrender.com/api)
+
+## Minimum Node Version
+
+To run this project locally, ensure that you have the minimum version of Node.js installed:
+
+- Node.js v14 or higher.
+
+## Running the Project Locally
+
+To run the app locally, follow these steps:
+
+## Clone the repository:
+
+git clone:
+(https://github.com/Lee1049/nc-news-fe-project.git)
+
+Navigate to the project directory:
+cd nc-news-fe-project
+
+Install dependencies:
+npm install
+
+Start the app:
+npm start
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
