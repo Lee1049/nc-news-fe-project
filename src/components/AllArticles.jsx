@@ -18,10 +18,18 @@ function AllArticles() {
         sortedArticles.sort(
           (a, b) => new Date(a.created_at) - new Date(b.created_at)
         );
-      } else {
+      } else if (sortBy === "newest") {
         sortedArticles.sort(
           (a, b) => new Date(b.created_at) - new Date(a.created_at)
         );
+      } else if (sortBy === "most_votes") {
+        sortedArticles.sort((a, b) => b.votes - a.votes);
+      } else if (sortBy === "least_votes") {
+        sortedArticles.sort((a, b) => a.votes - b.votes);
+      } else if (sortBy === "most_comments") {
+        sortedArticles.sort((a, b) => b.comment_count - a.comment_count);
+      } else if (sortBy === "least_comments") {
+        sortedArticles.sort((a, b) => a.comment_count - b.comment_count);
       }
 
       setArticles(sortedArticles);
@@ -54,6 +62,7 @@ function AllArticles() {
                 <p>
                   Posted: {new Date(article.created_at).toLocaleDateString()}
                 </p>
+                <p>Votes: {article.votes}</p>
                 <p>Comments: {article.comment_count}</p>
                 <Link to={`/articles/${article.article_id}`}>
                   <p>Click to View</p>

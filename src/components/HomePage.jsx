@@ -4,13 +4,12 @@ function HomeDisplay() {
   function handleClick() {}
 
   return (
-    <nav>
-      <Link
-        to="/articles"
-        onClick={handleClick}
-        className="all-articles-header"
-      >
+    <nav className="home-display">
+      <Link to="/articles" onClick={handleClick} className="home-link">
         All Articles
+      </Link>
+      <Link to="/topics" onClick={handleClick} className="home-link">
+        All Topics
       </Link>
     </nav>
   );

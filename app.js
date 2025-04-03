@@ -72,3 +72,25 @@ export const deleteComment = (comment_id) => {
       }
     });
 };
+
+export const fetchTopics = () => {
+  return api
+    .get("/topics")
+    .then(({ data }) => {
+      return data.topics;
+    })
+    .catch((error) => {
+      console.error("Error fetching topics:", error);
+    });
+};
+
+export const fetchArticlesByTopic = (topic_slug) => {
+  return api
+    .get(`/articles?topic=${topic_slug}`)
+    .then(({ data }) => {
+      return data.articles;
+    })
+    .catch((error) => {
+      console.error("Error fetching articles by topic:", error);
+    });
+};

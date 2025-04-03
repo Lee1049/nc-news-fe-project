@@ -6,6 +6,24 @@ body {
   padding: 20px;
 }
 
+.home-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.home-link {
+  font-size: 30px;
+  color: #222;
+  background-color: #99c2ff;
+  border: 2px solid #004085;
+  padding: 15px;
+  margin: 1px auto;
+  border-radius: 10px;
+  list-style-type: none;
+}
+
 .all-articles-header {
   text-align: center;
   font-size: 1.8rem;
@@ -140,6 +158,44 @@ body {
 .delete-comment-button:hover,
 .delete-comment-button:focus {
   background-color: #b71c1c;
+}
+
+.all-topics-header {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #004085;
+  background-color: #cce5ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.all-topics-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.single-topic-card {
+  background-color: #fff;
+  border: 2px solid #004085;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  list-style-type: none;
+}
+
+.single-topic {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #004085;
+  background-color: #cce5ff;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 600px) {
