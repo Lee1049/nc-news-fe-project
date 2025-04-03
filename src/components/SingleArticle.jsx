@@ -14,19 +14,36 @@ function SingleArticle() {
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const [voteChange, setVoteChange] = useState(0);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
+
     fetchSingleArticle(article_id)
       .then((articleData) => {
+        if (!articleData) {
+          setError(
+            "This article does not exist. Click the logo to go back home."
+          );
+          setLoading(false);
+          return;
+        }
         setArticle(articleData);
         return fetchComments(article_id);
       })
       .then((commentsData) => {
+        if (!commentsData) {
+          setError("No comments found for this article.");
+          setLoading(false);
+          return;
+        }
         setComments(commentsData);
         setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching the article:", error);
+        setError("This article does not exist.");
         setLoading(false);
       });
   }, [article_id]);
@@ -54,7 +71,7 @@ function SingleArticle() {
   };
 
   if (loading) return <p>Loading article...</p>;
-  if (!article) return <p>Article not found.</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
@@ -104,7 +121,7 @@ function SingleArticle() {
               </li>
             ))
           ) : (
-            <p>No comments yet.</p>
+            <p>Be the first to comment!</p>
           )}
         </ul>
       </div>

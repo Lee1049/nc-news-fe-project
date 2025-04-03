@@ -19,6 +19,10 @@ function App() {
             <Route path="/articles/:article_id" element={<SingleArticle />} />
             <Route path="/topics" element={<AllTopics />} />
             <Route path="/topics/:topic_slug" element={<SingleTopic />} />
+            <Route
+              path="*"
+              element={<h2>Page not found. Click the logo to go back home.</h2>}
+            />
           </Routes>
         </main>
       </div>
