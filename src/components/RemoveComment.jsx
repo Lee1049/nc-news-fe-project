@@ -19,7 +19,8 @@ const RemoveComment = ({ comment_id, setComments }) => {
             prevComments.filter((comment) => comment.comment_id !== comment_id)
           );
           setRemoveComment(false);
-          window.alert("Your thoughts have been removed.");
+          window.alert("Your thoughts have been removed. Refresh the page.");
+          window.location.reload();
         })
         .catch((error) => {
           console.error("Error deleting comment:", error);
