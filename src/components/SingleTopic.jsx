@@ -36,7 +36,6 @@ function SingleTopic() {
     return (
       <div>
         <LoadingAnimation />
-        <p>Loading topics...</p>
       </div>
     );
   if (error) return <p className="error-message">{error}</p>;

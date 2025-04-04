@@ -72,7 +72,6 @@ function SingleArticle() {
     return (
       <div>
         <LoadingAnimation />
-        <p>Loading articles...</p>
       </div>
     );
   if (error) return <p className="error-message">{error}</p>;

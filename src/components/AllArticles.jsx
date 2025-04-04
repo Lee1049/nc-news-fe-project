@@ -42,7 +42,6 @@ function AllArticles() {
     return (
       <div>
         <LoadingAnimation />
-        <p>Loading articles...</p>
       </div>
     );
   if (articles.length === 0) return <p>No articles found.</p>;

@@ -24,7 +24,6 @@ function AllTopics() {
     return (
       <div>
         <LoadingAnimation />
-        <p>Loading topics...</p>
       </div>
     );
   if (topics.length === 0) return <p>No topics found.</p>;
