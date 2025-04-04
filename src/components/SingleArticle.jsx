@@ -63,12 +63,9 @@ function SingleArticle() {
   };
 
   const handleDeleteComment = (comment_id) => {
-    setComments((prevComments) => {
-      const newComments = prevComments.filter(
-        (comment) => comment.comment_id !== comment_id
-      );
-      return newComments;
-    });
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment.comment_id !== comment_id)
+    );
   };
 
   if (loading)
@@ -122,7 +119,7 @@ function SingleArticle() {
                   Posted: {new Date(comment.created_at).toLocaleDateString()}
                   <RemoveComment
                     comment_id={comment.comment_id}
-                    setComments={handleDeleteComment}
+                    setComments={setComments}
                   />
                 </div>
               </li>

@@ -67,9 +67,6 @@ export const deleteComment = (comment_id) => {
       if (error.response) {
         console.error("Error response:", error.response);
       }
-      if (error.config) {
-        console.error("Error config:", error.config);
-      }
     });
 };
 
