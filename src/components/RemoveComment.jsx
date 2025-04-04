@@ -13,19 +13,16 @@ const RemoveComment = ({ comment_id, setComments }) => {
     if (confirmDelete) {
       setRemoveComment(true);
 
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment.comment_id !== comment_id)
-      );
-
       deleteComment(comment_id)
         .then(() => {
+          setComments((prevComments) =>
+            prevComments.filter((comment) => comment.comment_id !== comment_id)
+          );
           setRemoveComment(false);
-          window.alert("Your thoughts have been removed. Refresh the page.");
-          window.location.reload();
+          window.alert("Your thoughts have been removed.");
         })
         .catch((error) => {
           console.error("Error deleting comment:", error);
-
           setError("Failed to delete your thoughts. Please try again.");
           setRemoveComment(false);
         });
