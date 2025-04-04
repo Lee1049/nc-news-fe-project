@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchArticlesByTopic } from "../../app";
+import LoadingAnimation from "./LoadingAnimation";
 
 function SingleTopic() {
   const { topic_slug } = useParams();
@@ -34,8 +35,8 @@ function SingleTopic() {
   if (loading)
     return (
       <div>
+        <LoadingAnimation />
         <p>Loading topics...</p>
-        <div className="loader"></div>
       </div>
     );
   if (error) return <p className="error-message">{error}</p>;

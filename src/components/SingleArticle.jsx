@@ -7,6 +7,7 @@ import {
 } from "../../app";
 import NewComment from "./NewComment";
 import RemoveComment from "./RemoveComment";
+import LoadingAnimation from "./LoadingAnimation";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -73,8 +74,8 @@ function SingleArticle() {
   if (loading)
     return (
       <div>
+        <LoadingAnimation />
         <p>Loading articles...</p>
-        <div className="loader"></div>
       </div>
     );
   if (error) return <p className="error-message">{error}</p>;

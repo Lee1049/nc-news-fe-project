@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchTopics } from "../../app";
 import { Link } from "react-router-dom";
+import LoadingAnimation from "./LoadingAnimation";
 
 function AllTopics() {
   const [topics, setTopics] = useState([]);
@@ -22,8 +23,8 @@ function AllTopics() {
   if (loading)
     return (
       <div>
+        <LoadingAnimation />
         <p>Loading topics...</p>
-        <div className="loader"></div>
       </div>
     );
   if (topics.length === 0) return <p>No topics found.</p>;

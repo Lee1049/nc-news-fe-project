@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../../app";
 import SortBy from "./SortBy";
 import { Link } from "react-router-dom";
+import LoadingAnimation from "./LoadingAnimation";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -40,8 +41,8 @@ function AllArticles() {
   if (loading)
     return (
       <div>
+        <LoadingAnimation />
         <p>Loading articles...</p>
-        <div className="loader"></div>
       </div>
     );
   if (articles.length === 0) return <p>No articles found.</p>;
