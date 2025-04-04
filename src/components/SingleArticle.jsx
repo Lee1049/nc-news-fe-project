@@ -70,8 +70,14 @@ function SingleArticle() {
     });
   };
 
-  if (loading) return <p>Loading article...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading)
+    return (
+      <div>
+        <p>Loading articles...</p>
+        <div className="loader"></div>
+      </div>
+    );
+  if (error) return <p className="error-message">{error}</p>;
 
   return (
     <div>

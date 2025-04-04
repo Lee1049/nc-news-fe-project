@@ -14,7 +14,7 @@ function SingleTopic() {
 
     fetchArticlesByTopic(topic_slug)
       .then((articles) => {
-        if (!articles ?? articles.length === 0) {
+        if (!articles || articles.length === 0) {
           setError(
             "This topic does not exist. Click the logo to go back home."
           );
@@ -31,7 +31,13 @@ function SingleTopic() {
       });
   }, [topic_slug]);
 
-  if (loading) return <p>Loading topic...</p>;
+  if (loading)
+    return (
+      <div>
+        <p>Loading topics...</p>
+        <div className="loader"></div>
+      </div>
+    );
   if (error) return <p className="error-message">{error}</p>;
 
   return (
@@ -56,7 +62,7 @@ function SingleTopic() {
             <p>Posted: {new Date(article.created_at).toLocaleDateString()}</p>
             <p>Votes: {article.votes}</p>
             <p>Comments: {article.comment_count}</p>
-            <Link to={`/articles/${article.article_id}`}>
+            <Link className="link" to={`/articles/${article.article_id}`}>
               <p>Click to View</p>
             </Link>
           </li>

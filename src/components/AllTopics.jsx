@@ -19,7 +19,13 @@ function AllTopics() {
       });
   }, []);
 
-  if (loading) return <p>Loading topics...</p>;
+  if (loading)
+    return (
+      <div>
+        <p>Loading topics...</p>
+        <div className="loader"></div>
+      </div>
+    );
   if (topics.length === 0) return <p>No topics found.</p>;
 
   return (

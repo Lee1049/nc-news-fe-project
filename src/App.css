@@ -97,11 +97,8 @@ body {
 .voting-button {
   background-color: #00819d;
   border: 2px solid #ffffff;
-  padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
-  margin: 1px auto;
-  font-size: 16px;
   color: #ffffff;
 }
 
@@ -127,15 +124,13 @@ body {
   display: block;
   width: 50%;
   margin: 10px auto;
-  padding: 12px 20px;
-  text-align: center;
   font-size: 16px;
   font-weight: bold;
-  background-color: #005f7a;
-  color: #ffffff;
-  border: none;
+  background-color: #003f9d;
+  border: 2px solid #ffffff;
   border-radius: 30px;
   cursor: pointer;
+  color: #ffffff;
 }
 
 .comment-submit-button:hover,
@@ -288,5 +283,25 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

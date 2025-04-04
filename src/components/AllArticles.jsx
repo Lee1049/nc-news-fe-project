@@ -37,7 +37,13 @@ function AllArticles() {
     });
   }, [sortBy]);
 
-  if (loading) return <p>Loading articles...</p>;
+  if (loading)
+    return (
+      <div>
+        <p>Loading articles...</p>
+        <div className="loader"></div>
+      </div>
+    );
   if (articles.length === 0) return <p>No articles found.</p>;
 
   return (
