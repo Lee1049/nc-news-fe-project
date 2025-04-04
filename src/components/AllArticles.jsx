@@ -37,6 +37,9 @@ function AllArticles() {
     });
   }, [sortBy]);
 
+  if (loading) return <p>Loading articles...</p>;
+  if (articles.length === 0) return <p>No articles found.</p>;
+
   return (
     <div>
       <div className="all-articles-header">
@@ -45,32 +48,25 @@ function AllArticles() {
       <SortBy setSortBy={setSortBy} />
 
       <div className="all-articles-info">
-        {loading && <p>Loading articles...</p>}
-        {articles.length === 0 && !loading && <p>No articles found.</p>}
-
-        {!loading && articles.length > 0 && (
-          <ul className="image-container">
-            {articles.map((article) => (
-              <li key={article.article_id} className="single-article-card">
-                <h3>{article.title}</h3>
-                <img
-                  className="image"
-                  src={article.article_img_url}
-                  alt={article.title}
-                ></img>
-                <p>Author: {article.author}</p>
-                <p>
-                  Posted: {new Date(article.created_at).toLocaleDateString()}
-                </p>
-                <p>Votes: {article.votes}</p>
-                <p>Comments: {article.comment_count}</p>
-                <Link to={`/articles/${article.article_id}`}>
-                  <p>Click to View</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className="image-container">
+          {articles.map((article) => (
+            <li key={article.article_id} className="single-article-card">
+              <h3>{article.title}</h3>
+              <img
+                className="image"
+                src={article.article_img_url}
+                alt={article.title}
+              ></img>
+              <p>Author: {article.author}</p>
+              <p>Posted: {new Date(article.created_at).toLocaleDateString()}</p>
+              <p>Votes: {article.votes}</p>
+              <p>Comments: {article.comment_count}</p>
+              <Link className="link" to={`/articles/${article.article_id}`}>
+                <p>Click to View</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

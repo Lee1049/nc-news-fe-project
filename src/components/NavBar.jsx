@@ -6,7 +6,9 @@ function NavBar() {
     <nav className="navbar">
       <ul className="navbar-menu">
         <li>
-          <Link to="/">Home</Link>
+          <Link className="link" to="/">
+            Home
+          </Link>
         </li>
       </ul>
     </nav>

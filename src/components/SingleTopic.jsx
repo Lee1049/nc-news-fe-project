@@ -14,7 +14,7 @@ function SingleTopic() {
 
     fetchArticlesByTopic(topic_slug)
       .then((articles) => {
-        if (!articles) {
+        if (!articles ?? articles.length === 0) {
           setError(
             "This topic does not exist. Click the logo to go back home."
           );
@@ -33,15 +33,13 @@ function SingleTopic() {
 
   if (loading) return <p>Loading topic...</p>;
   if (error) return <p className="error-message">{error}</p>;
-  if (articles.length === 0) return <p>No articles found for this topic.</p>;
 
   return (
     <div>
       <div className="single-topic">
         <h2>
           Articles for{" "}
-          {topic_slug.charAt(0).toUpperCase() +
-            topic_slug.slice(1).replace("-", " ")}
+          {topic_slug.charAt(0).toUpperCase() + topic_slug.slice(1)}
         </h2>
       </div>
 

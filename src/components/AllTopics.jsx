@@ -19,28 +19,26 @@ function AllTopics() {
       });
   }, []);
 
+  if (loading) return <p>Loading topics...</p>;
+  if (topics.length === 0) return <p>No topics found.</p>;
+
   return (
     <div>
       <div className="all-topics-header">
         <h2>All Topics</h2>
-        <div className="all-topics-info">
-          {loading && <p>Loading topics...</p>}
-          {topics.length === 0 && !loading && <p>No topics found.</p>}
-
-          {!loading && topics.length > 0 && (
-            <ul>
-              {topics.map((topic) => (
-                <li key={topic.slug} className="single-article-card">
-                  <Link to={`/topics/${topic.slug}`}>
-                    <h3>
-                      {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-                    </h3>
-                  </Link>
-                  <p>{topic.description}</p>
-                </li>
-              ))}
-            </ul>
-          )}
+        <div>
+          <ul>
+            {topics.map((topic) => (
+              <li key={topic.slug} className="single-article-card">
+                <Link className="link" to={`/topics/${topic.slug}`}>
+                  <h3>
+                    {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
+                  </h3>
+                </Link>
+                <p>{topic.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
